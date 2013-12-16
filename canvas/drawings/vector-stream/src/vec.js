@@ -1,4 +1,7 @@
 var Vector = function( x2, y2, x1, y1 ) {
+
+    x2 = x2 || 0;
+    y2 = y2 || 0;
     x1 = x1 || 0;
     y1 = y1 || 0;
 
@@ -20,7 +23,7 @@ Vector.prototype = {
     }
     ,scaleX:function( xs ) { return this.scale( xs, 1 ); }
     ,scaleY:function( ys ) { return this.scale( 1, ys ); }
-    ,scale:function( xs, ys ) { return vec( xs * this.x, ys * this.y ); }
+    ,scale:function( xs, ys ) { return vec( (xs || 1) * this.x, (ys || 1) * this.y ); }
     ,translateX:function( xt ) { return this.translate( xt, 0 ); }
     ,translateY:function( yt ) { return this.translate( 0, yt ); }
     ,translate:function( xt, yt ) { return vec( this.x, this.y, -xt, -yt ); }
