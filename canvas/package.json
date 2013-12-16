@@ -1,0 +1,16 @@
+{
+  "name": "canvas-drawing",
+  "version": "0.0.0",
+  "description": "Working with canvas through node.",
+  "main": "ex1.js",
+  "dependencies": {
+    "canvas": "~1.1.2",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Caballero",
+  "license": "BSD-2-Clause"
+}
