@@ -5,5 +5,6 @@ module.exports = {
     Harness      : require('./harness'),
     Renderer     : require('./renderer'),
     VectorStream : require('./vector-stream'),
-    Vec          : require('./vec')
+    Vec          : require('./vec'),
+    SimpleSetup  : require('./simple-setup')
 };

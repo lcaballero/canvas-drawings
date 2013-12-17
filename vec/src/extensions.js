@@ -2,9 +2,13 @@
  ******************************************************************************/
 String.prototype.toColorArray = function() {
 
-    var x = /#([a-gA-G0-9]{2})([a-gA-G0-9]{2})([a-gA-G0-9]{2})/;
+    var x = /#([a-gA-G0-9]{2})([a-gA-G0-9]{2})([a-gA-G0-9]{2})([a-gA-G0-9]{2})?/;
 
     var a = x.exec( this.toString() ).slice(1);
+
+    if (!a[3]) {
+        a.pop()
+    }
 
     for (var i = 0; i < a.length; i++) {
         a[i] = parseInt( a[i], 16 );
@@ -65,6 +69,6 @@ Array.prototype.blue = function() {
 Array.prototype.alpha = function() {
     switch (arguments.length) {
         case 1: this[3] = arguments[0]; return this;
-        case 0: return this[3];
+        case 0: return this.length == 3 ? 0 : this[3];
     }
 };

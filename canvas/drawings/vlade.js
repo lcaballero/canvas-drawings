@@ -1,16 +1,14 @@
 var vs           = require('./vector-stream/src'),
-    Harness      = vs.Harness,
-    Renderer     = vs.Renderer,
-    VectorStream = vs.VectorStream,
     Vec          = vs.Vec,
+    SimpleSetup  = vs.SimpleSetup,
     _            = require('lodash');
 
 require('./vector-stream/src/extensions');
 
 module.exports = function() {
 
-    var width = 600;
-    var height = 400;
+    var width = 450;
+    var height = 300;
     var _2PI = Math.PI * 2;
     var steps = 34;
     var base_color = [150,0,0,1];
@@ -18,16 +16,13 @@ module.exports = function() {
     var horizontal_size = Vec(50,0);
     var vertical_size = Vec(0,15);
 
-    var harness = new Harness({
+    var vs = SimpleSetup({
         imageName:'vlade.png',
         width: width,
         height: height
     });
 
-    var r = new Renderer(harness.getContext());
-    var vs = new VectorStream(r);
-
-    function toCanvasCenter(vs, w, h) {
+    function toCanvasCenter(w, h) {
         return [
             {method:'translate', args:[w/2, h/2]},
             {method:'scale', args:[1,-1]}
@@ -104,7 +99,7 @@ module.exports = function() {
 
     vs.write(
         clear(width, height),
-        toCanvasCenter(vs, width, height),
+        toCanvasCenter(width, height),
         selectMany());
     vs.flush();
 
