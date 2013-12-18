@@ -1,7 +1,9 @@
 var vs           = require('./vector-stream/src'),
     Vec          = vs.Vec,
     SimpleSetup  = vs.SimpleSetup,
-    _            = require('lodash');
+    _            = require('lodash'),
+    _            = require('./vector-stream/src/lodash-mixins')(_);
+
 
 require('./vector-stream/src/extensions');
 
@@ -50,13 +52,16 @@ module.exports = function() {
     function zipping() {
         var as = _.range( 0, _2PI, _2PI / steps );
         var bs = _.range(.25, 1, .75 / steps );
-        var rs = [];
-
-        for (var i = 0; i < as.length; i++) {
-            var a = as[i];
-            var b = bs[i];
-            rs.push({ arc:a, opacity:b, scale:b });
-        }
+//        var rs = [];
+//
+//        for (var i = 0; i < as.length; i++) {
+//            var a = as[i];
+//            var b = bs[i];
+//            rs.push({ arc:a, opacity:b, scale:b });
+//        }
+        return _.zipMerge(as, bs, function(a,b) {
+            return {arc:a, opacity:b, scale:b}
+        });
 
         return rs;
     };

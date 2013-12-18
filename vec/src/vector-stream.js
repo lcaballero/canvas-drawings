@@ -8,10 +8,11 @@ module.exports = (function() {
         render: _.identity
     };
 
-    var VectorStream = function(renderer) {
+    var VectorStream = function(renderer, config) {
         this.buffer = Buffer();
         this.written = Buffer();
         this.renderer = renderer || EMPTY_RENDERER;
+        this.config = config || {};
     };
 
     VectorStream.prototype = {

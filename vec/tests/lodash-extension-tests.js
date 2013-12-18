@@ -31,5 +31,11 @@ describe('Lodash mixin', function() {
             expect(a[1].a).equals(2);
             expect(a[1].b).equals(4);
         });
+
+        it("should take multiple arrays of varying size",
+            function(){});
+
+        it("should take multiple arrays with null mixed in and not fail.",
+            function(){});
     });
 });

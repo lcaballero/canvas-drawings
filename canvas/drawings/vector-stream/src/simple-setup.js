@@ -4,11 +4,11 @@ var Harness = require('./harness'),
     _ = require('lodash');
 
 
-module.exports = function(options) {
+module.exports = function(config) {
 
-    var h = new Harness(options);
+    var h = new Harness(config);
     var r = new Renderer(h.getContext());
-    var vs = new VectorStream(r);
+    var vs = new VectorStream(r, config);
 
     return vs;
 };

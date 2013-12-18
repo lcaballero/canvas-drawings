@@ -5,7 +5,8 @@
   "main": "ex1.js",
   "dependencies": {
     "canvas": "~1.1.2",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "nject": "~1.1.1"
   },
   "devDependencies": {},
   "scripts": {
