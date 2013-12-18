@@ -19,12 +19,19 @@ var opts = {
     vertical_size           : Vec(0,15)
 };
 
-module.exports = _.resolve(opts,
-function( width, height, _2PI, steps, base_color, base_green_component,
-          horizontal_size, vertical_size) {
+function dwg(
+    width, height, _2PI, steps, base_color, base_green_component,
+    horizontal_size, vertical_size) {
+
+    console.log(
+        'during import resolution',
+        width, height, _2PI, steps, base_color, base_green_component,
+        horizontal_size, vertical_size);
 
     return function() {
-        console.log(width, height, _2PI, steps, base_color, base_green_component,
+        console.log(
+            'during execution',
+            width, height, _2PI, steps, base_color, base_green_component,
             horizontal_size, vertical_size);
 
         var vs = SimpleSetup({
@@ -110,4 +117,8 @@ function( width, height, _2PI, steps, base_color, base_green_component,
             .flush();
 
     };
-});
+};
+
+module.exports = _.resolve(opts, dwg);
+
+console.log('end dwg imports');

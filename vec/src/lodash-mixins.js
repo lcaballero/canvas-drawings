@@ -42,9 +42,7 @@ module.exports = function(_) {
          */
         , resolve: function(opts, fn) {
             var tree = new nject.Tree();
-            for (var p in opts) {
-                tree.constant(p, opts[p]);
-            }
+            tree.constant(opts);
             console.log('registering fn');
             tree.register('fn', fn);
 
@@ -53,11 +51,11 @@ module.exports = function(_) {
                 if (!!err) {
                     console.log(err, resolved);
                 } else {
-                    console.log(resolved)
-                    fn = resolved.fn
+                    console.log('resolved', resolved)
+                    fn = resolved.fn()
                 }
             });
-            return fn();
+            return fn;
         }
     });
 
